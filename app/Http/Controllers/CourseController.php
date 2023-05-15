@@ -53,7 +53,7 @@ class CourseController extends Controller
         $this->course->update($id, $data);
 
         return response()->json([
-            'message' => "Course Updated Successfully",
+            'message' => "Course updated successfully",
         ]);
     }
 
@@ -65,7 +65,7 @@ class CourseController extends Controller
         $course = $this->course->findOrFail($id);
         $course->delete();
         return response()->json([
-            'message' => "Course Deleted Successfully",
+            'message' => "Course deleted successfully",
             "course" => $course
         ], 200);
     }
