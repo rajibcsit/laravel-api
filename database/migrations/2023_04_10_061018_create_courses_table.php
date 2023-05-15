@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255)->nullable();
+            $table->text('description')->nullable();
             $table->double('course_fee')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('course_categories')->onDelete('cascade');;
             $table->timestamps();
         });
     }
